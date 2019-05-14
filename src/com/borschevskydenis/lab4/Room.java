@@ -2,10 +2,11 @@ package com.borschevskydenis.lab4;
 
 import com.borschevskydenis.lab4.Enum.ApartmentClass;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class Room {
+public class Room implements Serializable {
     private static int nextNumber = 1;
     private int number;
     private int numberOfPlaces;

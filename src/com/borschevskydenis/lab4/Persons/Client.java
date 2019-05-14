@@ -7,6 +7,7 @@ import com.borschevskydenis.lab4.Enum.Status;
 import com.borschevskydenis.lab4.Enum.Payment;
 import com.borschevskydenis.lab4.Room;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -9,7 +9,7 @@ import com.borschevskydenis.lab4.Room;
 
 import java.util.ArrayList;
 
-public class Administrator extends Human {
+public class Administrator extends Human  {
     private static int nextId = 1;
     private final int id;
 

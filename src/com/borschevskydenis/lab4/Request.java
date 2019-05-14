@@ -4,10 +4,11 @@ import com.borschevskydenis.lab4.Enum.ApartmentClass;
 import com.borschevskydenis.lab4.Enum.Payment;
 import com.borschevskydenis.lab4.Enum.Status;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class Request {
+public class Request implements Serializable {
     private static int nextId = 1;
     private final int id;
     private Status status;

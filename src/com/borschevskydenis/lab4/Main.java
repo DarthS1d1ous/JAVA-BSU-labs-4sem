@@ -4,6 +4,7 @@ import com.borschevskydenis.lab4.Enum.ApartmentClass;
 import com.borschevskydenis.lab4.Persons.Administrator;
 import com.borschevskydenis.lab4.Persons.Client;
 
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -66,7 +67,7 @@ public class Main {
         ArrayList<Client> clients = new ArrayList<>();
         Client firstClient = null;
         try {
-            firstClient = new Client(null, null, null, "375295885370", "7859000089635100");
+            firstClient = new Client("Маша", "Купрас", "Михайловна", "375295885370", "7859000089635100");
             clients.add(firstClient);
         } catch (IdentificationException e) {
             e.printStackTrace();
@@ -78,20 +79,20 @@ public class Main {
         } catch (IdentificationException e) {
             e.printStackTrace();
         }
-        Client thirdClient = null;
-        try {
-            thirdClient = new Client("Евгений", "Кухарчик", "Альбертович", "375296719021", "9859000083516200");
-            clients.add(thirdClient);
-        } catch (IdentificationException e) {
-            e.printStackTrace();
-        }
-        Client fourClient = null;
-        try {
-            fourClient = new Client("Cемён", "Смолик", "Михайлович", "375296718411", "9839000091515200");
-            clients.add(fourClient);
-        } catch (IdentificationException e) {
-            e.printStackTrace();
-        }
+//        Client thirdClient = null;
+//        try {
+//            thirdClient = new Client("Евгений", "Кухарчик", "Альбертович", "375296719021", "9859000083516200");
+//            clients.add(thirdClient);
+//        } catch (IdentificationException e) {
+//            e.printStackTrace();
+//        }
+//        Client fourClient = null;
+//        try {
+//            fourClient = new Client("Cемён", "Смолик", "Михайлович", "375296718411", "9839000091515200");
+//            clients.add(fourClient);
+//        } catch (IdentificationException e) {
+//            e.printStackTrace();
+//        }
 
         /** Создаём администратора */
         Administrator administrator = null;
@@ -101,79 +102,124 @@ public class Main {
             e.printStackTrace();
         }
 
-        /** Создаём заявки для каждого клиента */
-        ArrayList<Request> requests = new ArrayList<>();
-        Request forFirst = null;
-        if (firstClient != null) {
-            forFirst = firstClient.submitYourApplication(2, ApartmentClass.A, LocalDate.of(2019, 03, 19));
-            requests.add(forFirst);
-        }
-        Request forSecond = null;
-        if (secondClient != null) {
-            forSecond = secondClient.submitYourApplication(3, ApartmentClass.LUXURY, LocalDate.of(2019, 03, 26));
-            requests.add(forSecond);
-        }
-        Request forThird = null;
-        if (thirdClient != null) {
-            forThird = thirdClient.submitYourApplication(3, ApartmentClass.C, LocalDate.of(2019, 04, 16));
-            requests.add(forThird);
-        }
-        Request forFour = null;
-        if (fourClient != null) {
-            forFour = fourClient.submitYourApplication(6, ApartmentClass.LUXURY, LocalDate.of(2019, 03, 23));
-            requests.add(forFour);
-        }
+        Lab9B primer1 = new Lab9B("E:\\JavaBSU\\Test\\src\\com\\borschevskydenis\\lab4\\File1.txt");
+
+        primer1.Output(firstClient);
+        Client test = (Client) primer1.Input();
+        System.out.println(test);
 
 
-        /** Создаём список апартаментов */
-        ArrayList<Room> rooms = new ArrayList<>();
-        Room room1 = new Room(4, ApartmentClass.B);
-        Room room2 = new Room(0, ApartmentClass.A);
-        Room room3 = new Room(1, ApartmentClass.A);
-        Room room4 = new Room(4, ApartmentClass.LUXURY);
-        Room room5 = new Room(5, null);
-        Room room6 = new Room(6, ApartmentClass.LUXURY);
-        Room room7 = new Room(3, ApartmentClass.B);
-        rooms.add(room1);
-        rooms.add(room2);
-        rooms.add(room3);
-        rooms.add(room4);
-        rooms.add(room5);
-        rooms.add(room6);
-        rooms.add(room7);
+//        /** Создаём заявки для каждого клиента */
+//        ArrayList<Request> requests = new ArrayList<>();
+//        Request forFirst = null;
+//        if (firstClient != null) {
+//            forFirst = firstClient.submitYourApplication(2, ApartmentClass.A, LocalDate.of(2019, 03, 19));
+//            requests.add(forFirst);
+//        }
+//        Request forSecond = null;
+//        if (secondClient != null) {
+//            forSecond = secondClient.submitYourApplication(3, ApartmentClass.LUXURY, LocalDate.of(2019, 03, 26));
+//            requests.add(forSecond);
+//        }
+//        Request forThird = null;
+//        if (thirdClient != null) {
+//            forThird = thirdClient.submitYourApplication(3, ApartmentClass.C, LocalDate.of(2019, 04, 16));
+//            requests.add(forThird);
+//        }
+//        Request forFour = null;
+//        if (fourClient != null) {
+//            forFour = fourClient.submitYourApplication(6, ApartmentClass.LUXURY, LocalDate.of(2019, 03, 23));
+//            requests.add(forFour);
+//        }
+//
+//
+//        /** Создаём список апартаментов */
+//        ArrayList<Room> rooms = new ArrayList<>();
+//        Room room1 = new Room(4, ApartmentClass.B);
+//        Room room2 = new Room(0, ApartmentClass.A);
+//        Room room3 = new Room(1, ApartmentClass.A);
+//        Room room4 = new Room(4, ApartmentClass.LUXURY);
+//        Room room5 = new Room(5, null);
+//        Room room6 = new Room(6, ApartmentClass.LUXURY);
+//        Room room7 = new Room(3, ApartmentClass.B);
+//        rooms.add(room1);
+//        rooms.add(room2);
+//        rooms.add(room3);
+//        rooms.add(room4);
+//        rooms.add(room5);
+//        rooms.add(room6);
+//        rooms.add(room7);
+//
+//        /** Администратор рассматривает заявки */
+//        if (forFirst != null && administrator != null) {
+//            administrator.reviewApplication(forFirst, rooms);
+//        }
+//        if (forSecond != null && administrator != null) {
+//            administrator.reviewApplication(forSecond, rooms);
+//        }
+//        if (forThird != null && administrator != null) {
+//            administrator.reviewApplication(forThird, rooms);
+//        }
+//        if (forFour != null && administrator != null) {
+//            administrator.reviewApplication(forFour, rooms);
+//        }
+//
+//        /** Если администратор одобрил заявку, то клиент её оплачивает*/
+//        if (firstClient != null && forFirst != null) {
+//            firstClient.Payment(forFirst, rooms);
+//        }
+//        if (secondClient != null && forSecond != null) {
+//            secondClient.Payment(forSecond, rooms);
+//        }
+//        if (thirdClient != null && forThird != null) {
+//            thirdClient.Payment(forThird, rooms);
+//        }
+//        if (fourClient != null && forFour != null) {
+//            fourClient.Payment(forFour, rooms);
+//        }
+//        /** Вывод всех заявок и клиентов на экран */
+//        requests.forEach(System.out::println);
+//        System.out.println("////////////////////////////////////");
+//        clients.forEach(System.out::println);
+//        System.out.println("////////////////////////////////////");
+//        rooms.forEach(System.out::println);
+    }
+}
+class Lab9B {
 
-        /** Администратор рассматривает заявки */
-        if (forFirst != null && administrator != null) {
-            administrator.reviewApplication(forFirst, rooms);
-        }
-        if (forSecond != null && administrator != null) {
-            administrator.reviewApplication(forSecond, rooms);
-        }
-        if (forThird != null && administrator != null) {
-            administrator.reviewApplication(forThird, rooms);
-        }
-        if (forFour != null && administrator != null) {
-            administrator.reviewApplication(forFour, rooms);
-        }
+    private File file;
 
-        /** Если администратор одобрил заявку, то клиент её оплачивает*/
-        if (firstClient != null && forFirst != null) {
-            firstClient.Payment(forFirst, rooms);
+    public Lab9B(String path) {
+        this.file = new File(path);
+    }
+
+    public void setPath(String path) {
+        this.file = new File(path);
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void Output(Object object) {
+        try {
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file));
+            outputStream.writeObject(object);
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        if (secondClient != null && forSecond != null) {
-            secondClient.Payment(forSecond, rooms);
+    }
+
+    public Object Input() {
+        Object object = null;
+        try {
+            ObjectInputStream istream = new ObjectInputStream(new FileInputStream(file));
+            object = istream.readObject();
+            istream.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        if (thirdClient != null && forThird != null) {
-            thirdClient.Payment(forThird, rooms);
-        }
-        if (fourClient != null && forFour != null) {
-            fourClient.Payment(forFour, rooms);
-        }
-        /** Вывод всех заявок и клиентов на экран */
-        requests.forEach(System.out::println);
-        System.out.println("////////////////////////////////////");
-        clients.forEach(System.out::println);
-        System.out.println("////////////////////////////////////");
-        rooms.forEach(System.out::println);
+        return object;
     }
 }

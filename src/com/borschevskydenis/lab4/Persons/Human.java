@@ -2,7 +2,9 @@ package com.borschevskydenis.lab4.Persons;
 
 import com.borschevskydenis.lab4.IdentificationException;
 
-public abstract class Human {
+import java.io.Serializable;
+
+public abstract class Human implements Serializable {
     private String name;
     private String surname;
     private String patronymic;
